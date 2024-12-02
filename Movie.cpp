@@ -6,20 +6,20 @@ Movie::Movie() {
     avgRating = -1;
 }
 
-Movie::Movie(string& t, string& d, float& a) {
+Movie::Movie(string& t, string& d, double a) {
     title = t;
     date = d;
     avgRating = a;
 }
 
-string const &Movie::getTitle() const {
+string const& Movie::getTitle() const {
     return title;
 }
 
-string const &Movie::getDate() const {
+string const& Movie::getDate() const {
     return date;
 }
 
-float const &Movie::getAvgRating() const {
+double const& Movie::getAvgRating() const {
     return avgRating;
 }

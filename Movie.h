@@ -1,4 +1,8 @@
+#ifndef MOVIE_H
+#define MOVIE_H
+
 #include <string>
+#include "algorithm"
 
 using namespace std;
 
@@ -6,11 +10,13 @@ class Movie {
 private:
     string title;
     string date;
-    float avgRating;
+    double avgRating;
 public:
     Movie();
-    Movie(string& t, string& d, float& a);
+    Movie(string& t, string& d, double a);
     string const& getTitle() const;
     string const& getDate() const;
-    float const& getAvgRating() const;
+    double const& getAvgRating() const;
 };
+
+#endif

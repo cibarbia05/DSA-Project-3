@@ -8,4 +8,6 @@ add_executable(DSAProject3 main.cpp
         Algorithm1.h
         Movie.cpp
         Movie.h
-        Movie.h)
+        Movie.h
+        Algorithm2.cpp
+        Algorithm2.h)
