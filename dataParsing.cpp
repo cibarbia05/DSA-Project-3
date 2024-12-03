@@ -12,19 +12,6 @@ const std::vector<std::string> GENRE_NAMES = {
         "Musical", "Mystery", "Romance", "Sci-Fi", "Thriller", "War", "Western"
 };
 
-// RatingEntry class implementation
-RatingEntry::RatingEntry(int user, int item, int rate)
-        : userId(user), itemId(item), rating(rate) {}
-
-int RatingEntry::getUserId() const { return userId; }
-int RatingEntry::getItemId() const { return itemId; }
-int RatingEntry::getRating() const { return rating; }
-
-void RatingEntry::printEntry() const {
-    std::cout << "User ID: " << userId
-              << ", Item ID: " << itemId
-              << ", Rating: " << rating << std::endl;
-}
 
 // User class implementation
 User::User(int id, int userAge, const std::string& userGender,
@@ -83,57 +70,6 @@ void MovieT::printMovie() const {
     }
     std::cout << std::endl;
 }
-
-// MovieData class implementation
-//MovieData::MovieData() : name(""), genre({}) {}
-//
-//MovieData::MovieData(std::string newName, std::vector<std::string> newGenre, std::string date)
-//        : name(newName), genre(newGenre), realeaseDate(date) {}
-
-//std::string MovieData::get_genre() const {
-//    for(auto gen : genre) {
-//        return gen;
-//    }
-//    return "";
-//}
-//
-//std::string MovieData::get_realease_date() const {
-//    return realeaseDate;
-//}
-
-//std::string MovieData::get_name() const {
-//    return name;
-//}
-//
-//float MovieData::get_average_rating() const {
-//    return review_count > 0 ? total_rating / review_count : 0.0;
-//}
-//
-//float MovieData::get_average_age() const {
-//    return review_count > 0 ? total_age / review_count : 0.0;
-//}
-//
-//float MovieData::getMaletoFemaleRatio() const {
-//    return review_count > 0 ? (average_gender * 100.0) : 0.0;
-//}
-
-//void MovieData::addReview(int rating, int age, int gender) {
-//    ++review_count;
-//
-//    // Calculate cumulative total
-//    total_rating += rating;
-//    average_rating = total_rating / review_count;
-//
-//    total_age += age;
-//    average_age = total_age / review_count;
-//
-//    total_gender += gender;
-//    average_gender = total_gender / review_count;
-//}
-
-//int Movie::getReviewCount() const {
-//    return review_count;
-//}
 
 // Function implementations
 std::vector<User> parseUserFile(const std::string& filename) {
