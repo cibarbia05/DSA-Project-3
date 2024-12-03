@@ -4,6 +4,8 @@
 
 #include "dataParsing.h"
 #include "dataParsing.h"
+#include "Movie.h"
+
 const std::vector<std::string> GENRE_NAMES = {
         "Unknown", "Action", "Adventure", "Animation", "Children's", "Comedy",
         "Crime", "Documentary", "Drama", "Fantasy", "Film-Noir", "Horror",
@@ -83,55 +85,55 @@ void MovieT::printMovie() const {
 }
 
 // MovieData class implementation
-MovieData::MovieData() : name(""), genre({}) {}
+//MovieData::MovieData() : name(""), genre({}) {}
+//
+//MovieData::MovieData(std::string newName, std::vector<std::string> newGenre, std::string date)
+//        : name(newName), genre(newGenre), realeaseDate(date) {}
 
-MovieData::MovieData(std::string newName, std::vector<std::string> newGenre, std::string date)
-        : name(newName), genre(newGenre), realeaseDate(date) {}
+//std::string MovieData::get_genre() const {
+//    for(auto gen : genre) {
+//        return gen;
+//    }
+//    return "";
+//}
+//
+//std::string MovieData::get_realease_date() const {
+//    return realeaseDate;
+//}
 
-std::string MovieData::get_genre() const {
-    for(auto gen : genre) {
-        return gen;
-    }
-    return "";
-}
+//std::string MovieData::get_name() const {
+//    return name;
+//}
+//
+//float MovieData::get_average_rating() const {
+//    return review_count > 0 ? total_rating / review_count : 0.0;
+//}
+//
+//float MovieData::get_average_age() const {
+//    return review_count > 0 ? total_age / review_count : 0.0;
+//}
+//
+//float MovieData::getMaletoFemaleRatio() const {
+//    return review_count > 0 ? (average_gender * 100.0) : 0.0;
+//}
 
-std::string MovieData::get_realease_date() const {
-    return realeaseDate;
-}
+//void MovieData::addReview(int rating, int age, int gender) {
+//    ++review_count;
+//
+//    // Calculate cumulative total
+//    total_rating += rating;
+//    average_rating = total_rating / review_count;
+//
+//    total_age += age;
+//    average_age = total_age / review_count;
+//
+//    total_gender += gender;
+//    average_gender = total_gender / review_count;
+//}
 
-std::string MovieData::get_name() const {
-    return name;
-}
-
-float MovieData::get_average_rating() const {
-    return review_count > 0 ? total_rating / review_count : 0.0;
-}
-
-float MovieData::get_average_age() const {
-    return review_count > 0 ? total_age / review_count : 0.0;
-}
-
-float MovieData::getMaletoFemaleRatio() const {
-    return review_count > 0 ? (average_gender * 100.0) : 0.0;
-}
-
-void MovieData::addReview(int rating, int age, int gender) {
-    ++review_count;
-
-    // Calculate cumulative total
-    total_rating += rating;
-    average_rating = total_rating / review_count;
-
-    total_age += age;
-    average_age = total_age / review_count;
-
-    total_gender += gender;
-    average_gender = total_gender / review_count;
-}
-
-int MovieData::getReviewCount() const {
-    return review_count;
-}
+//int Movie::getReviewCount() const {
+//    return review_count;
+//}
 
 // Function implementations
 std::vector<User> parseUserFile(const std::string& filename) {
@@ -242,7 +244,7 @@ std::vector<MovieT> parseMovieFile(const std::string& filename) {
     return movies;
 }
 
-std::vector<MovieData> parseData() {
+std::vector<Movie> parseData() {
     try {
         //reviews
         std::string dataFilename = "u.data";
@@ -260,7 +262,7 @@ std::vector<MovieData> parseData() {
         std::cout << "Total movies parsed: " << movies.size() << std::endl;
 
         //We must now combine this data
-        std::map<std::string, MovieData> Data;
+        std::map<std::string, Movie> Data;
         for (auto rating : movieRatings) {
             std::string movieName = movies[rating.getItemId() - 1].getTitle();
             std::string date = movies[rating.getItemId() - 1].getReleaseDate();
@@ -269,12 +271,12 @@ std::vector<MovieData> parseData() {
             int gender = users[rating.getUserId() -1 ].getGender();
             std::vector<std::string> genereST = movies[rating.getItemId() - 1].getGenres();
             if (Data.find(movieName) == Data.end()) {
-                Data[movieName] = MovieData(movieName, genereST, date);
+                Data[movieName] = Movie(movieName, genereST, date);
             }
             Data[movieName].addReview(entryRating, age, gender);
         }
 
-        std::vector<MovieData> returnData;
+        std::vector<Movie> returnData;
         for(auto mov : Data) {
             returnData.push_back(mov.second);
         }

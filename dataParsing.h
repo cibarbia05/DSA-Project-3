@@ -12,6 +12,7 @@
 #include <string>
 #include <map>
 #include <queue>
+#include "Movie.h"
 
 // Genre names constant
 extern const std::vector<std::string> GENRE_NAMES;
@@ -73,39 +74,39 @@ public:
 };
 
 // MovieData class declaration
-class MovieData {
-private:
-    std::string name;
-    std::vector<std::string> genre;
-    std::string realeaseDate;
+//class MovieData {
+//private:
+//    std::string name;
+//    std::vector<std::string> genre;
+//    std::string realeaseDate;
+//
+//    float average_gender = 0.0;
+//    float average_rating = 0.0;
+//    float total_rating = 0.0;
+//    float average_age = 0.0;
+//
+//    float total_gender = 0.0;
+//    float review_count = 0.0;
+//    float total_age = 0.0;
+//
+//public:
+//    MovieData();
+//    MovieData(std::string newName, std::vector<std::string> newGenre, std::string date);
 
-    float average_gender = 0.0;
-    float average_rating = 0.0;
-    float total_rating = 0.0;
-    float average_age = 0.0;
-
-    float total_gender = 0.0;
-    float review_count = 0.0;
-    float total_age = 0.0;
-
-public:
-    MovieData();
-    MovieData(std::string newName, std::vector<std::string> newGenre, std::string date);
-
-    std::string get_genre() const;
-    std::string get_realease_date() const;
-    std::string get_name() const;
-    float get_average_rating() const;
-    float get_average_age() const;
-    float getMaletoFemaleRatio() const;
-    void addReview(int rating, int age, int gender);
-    int getReviewCount() const;
-};
+//    std::string get_genre() const;
+//    std::string get_realease_date() const;
+//    std::string get_name() const;
+//    float get_average_rating() const;
+//    float get_average_age() const;
+//    float getMaletoFemaleRatio() const;
+//    void addReview(int rating, int age, int gender);
+//    int getReviewCount() const;
+//};
 
 // Function declarations
 std::vector<User> parseUserFile(const std::string& filename);
 std::vector<RatingEntry> parseRatingFile(const std::string& filename);
 std::vector<MovieT> parseMovieFile(const std::string& filename);
-std::vector<MovieData> parseData();
+std::vector<Movie> parseData();
 
 #endif //DSAPROJECT3_DATAPARSING_H
