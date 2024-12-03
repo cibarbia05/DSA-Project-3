@@ -12,4 +12,6 @@ add_executable(DSAProject3 main.cpp
         Algorithm2.cpp
         Algorithm2.h
         userInput.cpp
-        userInput.h)
+        userInput.h
+        dataParsing.cpp
+        dataParsing.h)
