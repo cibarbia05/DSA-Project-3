@@ -10,4 +10,6 @@ add_executable(DSAProject3 main.cpp
         Movie.h
         Movie.h
         Algorithm2.cpp
-        Algorithm2.h)
+        Algorithm2.h
+        input_helpers.cpp
+        input_helpers.h)
