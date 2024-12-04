@@ -10,6 +10,7 @@ private:
     static int partition(vector<Movie>& movies, int low, int high);
 public:
     static Movie findKthHighestRatingMovie(vector<Movie>& movies, int k);
+    static Movie findKthHighestWithGenre(vector<Movie> &movies, int k, vector<std::string> genres);
 };
 
 #endif
