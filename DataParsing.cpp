@@ -1,51 +1,6 @@
-//
-// Created by Gabriel on 12/3/2024.
-//
-
-#include "dataParsing.h"
-#include "dataParsing.h"
+#include "DataParsing.h"
 #include "Movie.h"
 
-const std::vector<std::string> GENRE_NAMES = {
-        "Unknown", "Action", "Adventure", "Animation", "Children's", "Comedy",
-        "Crime", "Documentary", "Drama", "Fantasy", "Film-Noir", "Horror",
-        "Musical", "Mystery", "Romance", "Sci-Fi", "Thriller", "War", "Western"
-};
-
-// Movie class implementation
-MovieT::MovieT(int id, const std::string& movieTitle, const std::string& release,
-             const std::string& url, const std::vector<int>& genreFlags)
-        : movieId(id), title(movieTitle), releaseDate(release), imdbUrl(url) {
-    // Add genres based on genre flags
-    for (size_t i = 0; i < genreFlags.size(); ++i) {
-        if (genreFlags[i] == 1) {
-            genres.push_back(GENRE_NAMES[i]);
-        }
-    }
-}
-
-int MovieT::getMovieId() const { return movieId; }
-std::string MovieT::getTitle() const { return title; }
-std::string MovieT::getReleaseDate() const { return releaseDate; }
-std::string MovieT::getImdbUrl() const { return imdbUrl; }
-std::vector<std::string> MovieT::getGenres() const { return genres; }
-
-void MovieT::printMovie() const {
-    std::cout << "Movie ID: " << movieId
-              << ", Title: " << title
-              << ", Release Date: " << releaseDate
-              << ", IMDb URL: " << imdbUrl
-              << std::endl;
-
-    // Print genres
-    std::cout << "Genres: ";
-    for (const auto& genre : genres) {
-        std::cout << genre << " ";
-    }
-    std::cout << std::endl;
-}
-
-// Function implementations
 std::vector<User> parseUserFile(const std::string& filename) {
     std::vector<User> users;
     std::ifstream file(filename);
@@ -77,7 +32,6 @@ std::vector<User> parseUserFile(const std::string& filename) {
             );
         }
     }
-
     file.close();
     return users;
 }
@@ -100,7 +54,6 @@ std::vector<RatingEntry> parseRatingFile(const std::string& filename) {
             ratings.emplace_back(userId, itemId, rating);
         }
     }
-
     file.close();
     return ratings;
 }
@@ -124,13 +77,11 @@ std::vector<MovieT> parseMovieFile(const std::string& filename) {
         while (std::getline(iss, token, '|')) {
             tokens.push_back(token);
         }
-
         // Ensure we have enough tokens
         if (tokens.size() < 24) {
             std::cerr << "Skipping invalid line: insufficient tokens" << std::endl;
             continue;
         }
-
         // Convert movie ID to integer
         int movieId = std::stoi(tokens[0]);
 
@@ -139,7 +90,6 @@ std::vector<MovieT> parseMovieFile(const std::string& filename) {
         for (size_t i = 5; i < tokens.size(); ++i) {
             genreFlags.push_back(std::stoi(tokens[i]));
         }
-
         // Create and store the Movie object
         movies.emplace_back(
                 movieId,
@@ -149,7 +99,6 @@ std::vector<MovieT> parseMovieFile(const std::string& filename) {
                 genreFlags
         );
     }
-
     file.close();
     return movies;
 }
@@ -185,7 +134,6 @@ std::vector<Movie> parseData() {
             }
             Data[movieName].addReview(entryRating, age, gender);
         }
-
         std::vector<Movie> returnData;
         for(auto mov : Data) {
             returnData.push_back(mov.second);

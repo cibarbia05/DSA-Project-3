@@ -1,9 +1,4 @@
-//
-// Created by Gabriel on 12/3/2024.
-//
-
-#include "userInput.h"
-
+#include "UserInput.h"
 
 std::string toLowercase(std::string str) {
     std::transform(str.begin(), str.end(), str.begin(),

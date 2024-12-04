@@ -1,10 +1,8 @@
 #ifndef MOVIE_H
 #define MOVIE_H
-
 #include <string>
 #include <vector>
 #include "algorithm"
-
 using namespace std;
 
 class Movie {
@@ -28,7 +26,6 @@ public:
     string const& getDate() const;
     double const& getAvgRating() const;
     void addReview(int rating, int age, int gender);
-
 };
 
 #endif
