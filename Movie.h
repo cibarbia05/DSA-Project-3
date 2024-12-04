@@ -10,7 +10,7 @@ private:
     string name;
     string date;
     vector<string> genres;
-    double avgRating;
+    float avgRating = 0.0;
     float average_gender = 0.0;
     float average_rating = 0.0;
     float total_rating = 0.0;
@@ -24,7 +24,7 @@ public:
     Movie(string& n, vector<string>& g, string& d);
     string const& getName() const;
     string const& getDate() const;
-    double const& getAvgRating() const;
+    float const& getAvgRating();
     void addReview(int rating, int age, int gender);
 };
 

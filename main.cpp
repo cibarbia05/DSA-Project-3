@@ -37,7 +37,7 @@ int main() {
     // return 0;
 
     vector<Movie> movies = parseData();
-    int k = 4;
+    int k = 55;
     Movie kthLargestRatingMovie = Algorithm2::findKthHighestRatingMovie(movies, k);
     cout << kthLargestRatingMovie.getName() << " - " << kthLargestRatingMovie.getDate() << " - " << kthLargestRatingMovie.getAvgRating();
 
