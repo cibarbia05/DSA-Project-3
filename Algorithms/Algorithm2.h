@@ -2,7 +2,7 @@
 #define ALGORITHM2_H
 
 #include <vector>
-#include "Movie.h"
+#include "../Model/Movie.h"
 
 class Algorithm2 {
 private:

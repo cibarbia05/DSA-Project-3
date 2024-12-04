@@ -1,9 +1,9 @@
-#include "userInput.h"
+#include "UserInput.h"
 #include "vector"
 #include "set"
 #include "DataParsing.h"
-#include "Algorithm1.h"
-#include "Algorithm2.h"
+#include "../Algorithms/Algorithm1.h"
+#include "../Algorithms/Algorithm2.h"
 
 const std::vector<std::string> GENRE_NAMES = {
         "Unknown", "Action", "Adventure", "Animation", "Children's", "Comedy",

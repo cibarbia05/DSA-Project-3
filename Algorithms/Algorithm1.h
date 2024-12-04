@@ -1,7 +1,7 @@
 #ifndef ALGORITHM1_H
 #define ALGORITHM1_H
 #include <vector>
-#include "Movie.h"
+#include "../Model/Movie.h"
 
 using namespace std;
 
