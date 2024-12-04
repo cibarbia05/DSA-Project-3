@@ -1,6 +1,7 @@
 
 #ifndef DSAPROJECT3_USERINPUT_H
 #define DSAPROJECT3_USERINPUT_H
+
 #include <iostream>
 #include <string>
 #include <limits>
@@ -24,4 +25,4 @@ void displayWelcomeArt();
 
 int userInput();
 
-#endif //DSAPROJECT3_USERINPUT_H
+#endif
