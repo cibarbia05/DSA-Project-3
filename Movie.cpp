@@ -21,7 +21,7 @@ string const& Movie::getDate() const {
     return date;
 }
 
-double const& Movie::getAvgRating() const {
+float const& Movie::getAvgRating() {
     return average_rating;
 }
 
