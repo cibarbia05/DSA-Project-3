@@ -195,10 +195,10 @@ int userInput() {
     std::cout << "   "<< name << "'s " << "Top movie reccomendation!"<< std::endl;
     if (option == 1) {
         Movie kthLargestRatingMovieHeap = Algorithm1::findKthRatedGenre(movies, k, userGenres);
-        cout << "\n" <<"      "<< kthLargestRatingMovieHeap.getName() << " - " << kthLargestRatingMovieHeap.getDate() << "\n" << "       Rating :" << kthLargestRatingMovieHeap.getAvgRating()<< " - Genre: " <<kthLargestRatingMovieHeap.getGenre();
+        cout << "\n" <<"      "<< kthLargestRatingMovieHeap.getName() << " - " << kthLargestRatingMovieHeap.getDate() << "\n" << "       Rating: " << kthLargestRatingMovieHeap.getAvgRating()<< " - Genre: " <<kthLargestRatingMovieHeap.getGenre();
     } else {
         Movie kthLargestRatingMovie = Algorithm2::findKthHighestWithGenre(movies, k, userGenres);
-        cout <<"     "<< kthLargestRatingMovie.getName() << " - " << kthLargestRatingMovie.getDate() << "\n" << "     Rating :"<< kthLargestRatingMovie.getAvgRating() << " - Genre: " <<kthLargestRatingMovie.getGenre();
+        cout <<"     "<< kthLargestRatingMovie.getName() << " - " << kthLargestRatingMovie.getDate() << "\n" << "     Rating: "<< kthLargestRatingMovie.getAvgRating() << " - Genre: " <<kthLargestRatingMovie.getGenre();
     }
     std::cout << "   " << std::endl;
     std::cout << "___________________________________________________________________________________________" << "\n" << std::endl;
