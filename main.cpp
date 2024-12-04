@@ -3,7 +3,6 @@
 #include "Movie.h"
 #include "Algorithm1.h"
 #include "Algorithm2.h"
-#include "InputHelpers.h"
 #include "DataParsing.h"
 #include "UserInput.h"
 using namespace std;
