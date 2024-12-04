@@ -22,7 +22,7 @@ string const& Movie::getDate() const {
 }
 
 double const& Movie::getAvgRating() const {
-    return avgRating;
+    return average_rating;
 }
 
 void Movie::addReview(int rating, int age, int gender)
