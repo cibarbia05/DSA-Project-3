@@ -40,7 +40,10 @@ std::vector<std::string> askUserForGenres() {
             } else if (genreIndex > 0 && static_cast<size_t>(genreIndex) < GENRE_NAMES.size()) {
                 if (selectedIndices.find(genreIndex) != selectedIndices.end()) {
                     std::cout << "You have already added \"" << GENRE_NAMES[genreIndex] << "\" to your list. Choose another genre." << std::endl;
-                } else {
+                } else if (selectedIndices.size() == GENRE_NAMES.size() -2){
+                    std::cout << "You cannot dislike all genres!" << std::endl;
+                }
+                else {
                     likedGenres.push_back(GENRE_NAMES[genreIndex]);
                     selectedIndices.insert(genreIndex);
                     std::cout << "Added \"" << GENRE_NAMES[genreIndex] << "\" to your dislike list.\n";
