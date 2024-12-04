@@ -8,10 +8,10 @@
 #include <string>
 #include <map>
 #include <queue>
-#include "Movie.h"
-#include "RatingEntry.h"
-#include "User.h"
-#include "MovieT.h"
+#include "../Model/Movie.h"
+#include "../Model/RatingEntry.h"
+#include "../Model/User.h"
+#include "../Model/MovieT.h"
 
 std::vector<User> parseUserFile(const std::string& filename);
 std::vector<RatingEntry> parseRatingFile(const std::string& filename);

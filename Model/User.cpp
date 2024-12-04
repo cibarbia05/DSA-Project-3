@@ -6,13 +6,15 @@ User::User(int id, int userAge, const std::string& userGender,
           occupation(userOccupation), zipCode(userZipCode) {}
 
 int User::getUserId() const { return userId; }
+
 int User::getAge() const { return age; }
+
 int User::getGender() const {
-    if (gender == "M") {
+    if (gender == "M")
         return 1;
-    }
     return 0;
 }
+
 std::string User::getOccupation() const { return occupation; }
 std::string User::getZipCode() const { return zipCode; }
 

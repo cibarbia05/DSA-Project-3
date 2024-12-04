@@ -1,5 +1,5 @@
 #include "DataParsing.h"
-#include "Movie.h"
+#include "../Model/Movie.h"
 
 std::vector<User> parseUserFile(const std::string& filename) {
     std::vector<User> users;

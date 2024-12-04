@@ -3,11 +3,7 @@
 
 using namespace std;
 
-Movie Algorithm2::findKthHighestRatingMovie(vector<Movie>& movies, int k) {
-    return quickSelect(movies, 0, movies.size() - 1, movies.size() - k);
-}
 Movie Algorithm2::findKthHighestWithGenre(vector<Movie> &movies, int k, vector<std::string> genres) {
-    int intk = k;
     for (auto genre : genres){
         if (genre == quickSelect(movies,0, movies.size()-1, movies.size() - k).getGenre())
             return findKthHighestWithGenre(movies, k++, genres);
@@ -41,5 +37,3 @@ int Algorithm2::partition(vector<Movie>& movies, int low, int high) {
     swap(movies[low], movies[h]);
     return h;
 }
-
-

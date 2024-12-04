@@ -1,15 +1,16 @@
-#include "userInput.h"
+#include "UserInput.h"
 #include "vector"
 #include "set"
 #include "DataParsing.h"
-#include "Algorithm1.h"
-#include "Algorithm2.h"
+#include "../Algorithms/Algorithm1.h"
+#include "../Algorithms/Algorithm2.h"
 
 const std::vector<std::string> GENRE_NAMES = {
         "Unknown", "Action", "Adventure", "Animation", "Children's", "Comedy",
         "Crime", "Documentary", "Drama", "Fantasy", "Film-Noir", "Horror",
         "Musical", "Mystery", "Romance", "Sci-Fi", "Thriller", "War", "Western"
 };
+
 std::vector<std::string> askUserForGenres() {
     std::vector<std::string> likedGenres;
     std::set<int> selectedIndices; // Keep track of selected indices to prevent duplicates
@@ -50,7 +51,6 @@ std::vector<std::string> askUserForGenres() {
             std::cout << "Invalid input. Please enter a valid number.\n";
         }
     }
-
     return likedGenres;
 }
 
@@ -60,7 +60,7 @@ std::string toLowercase(std::string str) {
     return str;
 }
 
-// Function to validate yes or no inputt
+// Function to validate yes or no input
 bool validateYesNo(const std::string& input) {
     std::string lowercaseInput = toLowercase(input);
     return lowercaseInput == "y" || lowercaseInput == "yes" ||
@@ -88,10 +88,10 @@ int getAgeInput() {
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
-
         std::cout << " Invalid age! Please enter a number between 0 and 120: ";
     }
 }
+
 bool validateNum(int num) {
     return num >= 1 && num <= 1644;
 }
@@ -113,7 +113,6 @@ int getNumInput() {
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
-
         std::cout << " Invalid number! Please enter a number between 1 and 1644: ";
     }
 }
@@ -131,7 +130,6 @@ std::string getYesNoInput() {
         if (validateYesNo(input)) {
             return toLowercase(input);
         }
-
         std::cout << " Invalid input! Please enter (Y)es or (N)o: ";
     }
 }
@@ -167,7 +165,7 @@ int userInput() {
         std::getline(std::cin, name);
     }
 
-    std::cout << "\n> Hi, " << name << "! How old are you?";
+    std::cout << "\n> Hi, " << name << "! How old are you? ";
     age = getAgeInput();
 
     std::cout <<"Everyone has something they can't stand, so first we gotta ask, what don't you like?"<< std::endl;
@@ -195,17 +193,15 @@ int userInput() {
     std::cout << "\n Film Finders Results:" << std::endl;
     std::cout << "___________________________________________________________________________________________" << std::endl;
     std::cout << "   "<< name << "'s " << "Top movie reccomendation!"<< std::endl;
-    if(option ==1){
+    if (option == 1) {
         Movie kthLargestRatingMovieHeap = Algorithm1::findKthRatedGenre(movies, k, userGenres);
-        cout << "\n" <<"      "<< kthLargestRatingMovieHeap.getName() << " - " << kthLargestRatingMovieHeap.getDate() << "\n" << "       Rating :" << kthLargestRatingMovieHeap.getAvgRating()<< " - Genre: " <<kthLargestRatingMovieHeap.getGenre();
-    } else{
+        cout << "\n" <<"      "<< kthLargestRatingMovieHeap.getName() << " - " << kthLargestRatingMovieHeap.getDate() << "\n" << "       Rating: " << kthLargestRatingMovieHeap.getAvgRating()<< " - Genre: " <<kthLargestRatingMovieHeap.getGenre();
+    } else {
         Movie kthLargestRatingMovie = Algorithm2::findKthHighestWithGenre(movies, k, userGenres);
-        cout <<"     "<< kthLargestRatingMovie.getName() << " - " << kthLargestRatingMovie.getDate() << "\n" << "     Rating :"<< kthLargestRatingMovie.getAvgRating() << " - Genre: " <<kthLargestRatingMovie.getGenre();
+        cout <<"     "<< kthLargestRatingMovie.getName() << " - " << kthLargestRatingMovie.getDate() << "\n" << "     Rating: "<< kthLargestRatingMovie.getAvgRating() << " - Genre: " <<kthLargestRatingMovie.getGenre();
     }
     std::cout << "   " << std::endl;
     std::cout << "___________________________________________________________________________________________" << "\n" << std::endl;
     std::cout << "Thank you for using Film Finders! Happy watching." << std::endl;
     return 0;
 }
-//cout << "\n" << kthLargestRatingMovieHeap.getName() << " - " << kthLargestRatingMovieHeap.getDate() << " - " << kthLargestRatingMovieHeap.getAvgRating();
-//cout << kthLargestRatingMovie.getName() << " - " << kthLargestRatingMovie.getDate() << " - " << kthLargestRatingMovie.getAvgRating();
