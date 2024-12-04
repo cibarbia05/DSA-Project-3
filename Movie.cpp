@@ -39,3 +39,10 @@ void Movie::addReview(int rating, int age, int gender)
     total_gender += gender;
     average_gender = total_gender / review_count;
 }
+
+string const Movie::getGenre() {
+    for(auto genre : genres){
+        return genre;
+    }
+
+}

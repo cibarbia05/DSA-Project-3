@@ -25,6 +25,7 @@ public:
     string const& getName() const;
     string const& getDate() const;
     float const& getAvgRating();
+    string const getGenre();
     void addReview(int rating, int age, int gender);
 };
 
