@@ -1,7 +1,6 @@
 #ifndef DSAPROJECT3_RATINGENTRY_H
 #define DSAPROJECT3_RATINGENTRY_H
 
-
 class RatingEntry {
 private:
     int userId;
@@ -15,6 +14,5 @@ public:
     int getRating() const;
     void printEntry() const;
 };
-
 
 #endif //DSAPROJECT3_RATINGENTRY_H

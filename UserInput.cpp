@@ -10,6 +10,7 @@ const std::vector<std::string> GENRE_NAMES = {
         "Crime", "Documentary", "Drama", "Fantasy", "Film-Noir", "Horror",
         "Musical", "Mystery", "Romance", "Sci-Fi", "Thriller", "War", "Western"
 };
+
 std::vector<std::string> askUserForGenres() {
     std::vector<std::string> likedGenres;
     std::set<int> selectedIndices; // Keep track of selected indices to prevent duplicates
@@ -50,7 +51,6 @@ std::vector<std::string> askUserForGenres() {
             std::cout << "Invalid input. Please enter a valid number.\n";
         }
     }
-
     return likedGenres;
 }
 
@@ -60,7 +60,7 @@ std::string toLowercase(std::string str) {
     return str;
 }
 
-// Function to validate yes or no inputt
+// Function to validate yes or no input
 bool validateYesNo(const std::string& input) {
     std::string lowercaseInput = toLowercase(input);
     return lowercaseInput == "y" || lowercaseInput == "yes" ||
@@ -88,7 +88,6 @@ int getAgeInput() {
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
-
         std::cout << " Invalid age! Please enter a number between 0 and 120: ";
     }
 }
@@ -113,7 +112,6 @@ int getNumInput() {
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
-
         std::cout << " Invalid number! Please enter a number between 1 and 1644: ";
     }
 }
@@ -131,7 +129,6 @@ std::string getYesNoInput() {
         if (validateYesNo(input)) {
             return toLowercase(input);
         }
-
         std::cout << " Invalid input! Please enter (Y)es or (N)o: ";
     }
 }

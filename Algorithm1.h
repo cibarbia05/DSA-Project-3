@@ -5,8 +5,7 @@
 
 using namespace std;
 
-class Algorithm1
-{
+class Algorithm1 {
 public:
     static Movie findKthRatedMovieHeap(vector<Movie>& movies, int k);
     static Movie findKthRatedGenre(vector<Movie> movies, int k, vector<string> genres);
