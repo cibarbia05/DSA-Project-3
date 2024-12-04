@@ -139,7 +139,7 @@ std::string getYesNoInput() {
 void displayWelcomeArt() {
     std::cout << R"(
     ________________________________________
-    |              Film Finders            |
+    |          Retro Film Finders          |
     ________________________________________
 )" << std::endl;
 }
@@ -147,7 +147,7 @@ void displayWelcomeArt() {
 int userInput() {
     // Display welcome art
     displayWelcomeArt();
-    std::cout << "Welcome to Film Finders! \nWe are dedicated to helping you find your best fit movie recommendation.\nFirst lets get to know you!" << std::endl;
+    std::cout << "Welcome to Retro Film Finders! \nWe are dedicated to helping you find your best fit pre-1990 movie recommendation.\nFirst lets get to know you!" << std::endl;
 
     // Variables to store user responses
     std::string name;
