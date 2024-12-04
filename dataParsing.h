@@ -13,24 +13,11 @@
 #include <map>
 #include <queue>
 #include "Movie.h"
+#include "RatingEntry.h"
 
 // Genre names constant
 extern const std::vector<std::string> GENRE_NAMES;
 
-// RatingEntry class declaration
-class RatingEntry {
-private:
-    int userId;
-    int itemId;
-    int rating;
-
-public:
-    RatingEntry(int user, int item, int rate);
-    int getUserId() const;
-    int getItemId() const;
-    int getRating() const;
-    void printEntry() const;
-};
 
 // User class declaration
 class User {
