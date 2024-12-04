@@ -37,3 +37,7 @@ int Algorithm2::partition(vector<Movie>& movies, int low, int high) {
     swap(movies[low], movies[h]);
     return h;
 }
+
+Movie Algorithm2::findKthHighest(vector<Movie> &movies, int k) {
+    return quickSelect(movies, 0, movies.size() - 1, movies.size() - k);
+}

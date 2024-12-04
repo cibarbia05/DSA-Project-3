@@ -191,7 +191,7 @@ int userInput() {
         std::cout << "Invalid input! Please enter 1 or 2:" << std::endl;
     }
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    vector<Movie> movies = parseData();
+    vector<Movie> Unsortedmovies = parseData();
     int k = kth_choice;
 
     std::cout << "\nFilm Finders Results:" << std::endl;
@@ -199,13 +199,22 @@ int userInput() {
     std::cout << "   "<< name << "'s " << "Top movie recommendation!"<< std::endl;
 
     // Track algorithm duration
+    vector<Movie> movies;
+    for (auto movie : Unsortedmovies){
+        for(auto genre : userGenres){
+            if (genre != movie.getGenre()){
+                movies.push_back(movie);
+            }
+        }
+    }
     auto start = std::chrono::high_resolution_clock::now();
-
     if (option == 1) {
-        Movie kthLargestRatingMovieHeap = Algorithm1::findKthRatedGenre(movies, k, userGenres);
+        //Movie kthLargestRatingMovieHeap = Algorithm1::findKthRatedGenre(movies, k, userGenres);
+        Movie kthLargestRatingMovieHeap = Algorithm1::findKthRatedMovieHeap(movies, k);
         cout << "     " << kthLargestRatingMovieHeap.getName() << " - " << kthLargestRatingMovieHeap.getDate() << "\n" << "     Rating: " << kthLargestRatingMovieHeap.getAvgRating()<< " - Genre: " <<kthLargestRatingMovieHeap.getGenre() << std::endl;
     } else {
-        Movie kthLargestRatingMovie = Algorithm2::findKthHighestWithGenre(movies, k, userGenres);
+        //Movie kthLargestRatingMovie = Algorithm2::findKthHighestWithGenre(movies, k, userGenres);
+        Movie kthLargestRatingMovie = Algorithm2::findKthHighest(movies, k);
         cout << "     " << kthLargestRatingMovie.getName() << " - " << kthLargestRatingMovie.getDate() << "\n" << "     Rating: "<< kthLargestRatingMovie.getAvgRating() << " - Genre: " <<kthLargestRatingMovie.getGenre() << std::endl;
     }
     auto end = std::chrono::high_resolution_clock::now();
